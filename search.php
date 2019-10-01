@@ -9,6 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 ftl">
+            <h1 class="headbar">Your Keyword <span><?php _e(''); echo '&quot;'.$s.'&quot;'; ?></span> Results are bellow </h1>
                 <div class="row">
                     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
