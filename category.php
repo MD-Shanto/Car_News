@@ -41,7 +41,7 @@
                                                 <a class="btn btn-primary transition7s" href="news-single.html"><i class="fa fa-calendar"></i> <?php the_date('d m Y')?></a>
                                             </div>
                                             <div class="pull-right">
-                                                <a class="btn btn-primary transition7s" href="news-single.html">Read More</a>
+                                                <a class="btn btn-primary transition7s" href="<?php the_permalink()?>">Read More</a>
                                             </div>
                                         </div>
                                     </div>

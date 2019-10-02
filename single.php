@@ -90,8 +90,8 @@
                 <div class="single-page-details">
                     <h2><?php the_title() ?></h2>
                     <p> <?php if (has_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('feature_image_one', array('class' => 'post-thumb')); ?>
-                        <?php endif ?></p>
+                            <?php the_post_thumbnail('feature_image_two', array('class' => 'post-thumb')); ?>
+                        <?php endif ?></p><br>
                     <p><?php the_excerpt() ?></p>
                 </div>
                 <div class="row">

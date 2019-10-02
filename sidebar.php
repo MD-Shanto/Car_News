@@ -29,10 +29,58 @@
         <div class="siderbar-widget">
             <h4 class="sidebar-widget-title">ARCHIVES</h4>
             <ul>
-            <?php  wp_get_archives( array( 'type' => 'monthly', 'limit' => 12,'order' => 'ASC' )); ?>
+                <?php wp_get_archives(array('type' => 'monthly', 'limit' => 12, 'order' => 'ASC')); ?>
             </ul>
         </div>
-        <?php dynamic_sidebar( 'widget-home-one' ); ?>
+        <?php dynamic_sidebar('widget-home-one'); ?>
 
+        <div class="siderbar-widget">
+            <h4 class="sidebar-widget-title">Freelancing Catagory Post</h4>
+
+            <?php
+            $freelancing_category_posts = new WP_Query(array(
+                'post_type'       => 'post',
+                'posts_per_page'  => 5,
+                'orderby'         => 'title',
+                'order'           => 'DESC',
+                'category_name'   => 'Freelancing'
+            ));
+            ?>
+            
+            <?php if (have_posts()) : while ($freelancing_category_posts->have_posts()) : $freelancing_category_posts->the_post() ?>
+                    <div class="widget-news">
+                        <a href="#"><?php the_post_thumbnail('feature_image_one', array('class' => 'post-thumb')); ?></a>
+                        <div class="news-text">
+                            <p><?php the_title()?></p>
+                            <a class="" href="<?php the_permalink() ?>">Read More</a>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+
+        <div class="siderbar-widget">
+            <h4 class="sidebar-widget-title">Slug Catagory Post</h4>
+
+         <?php
+         $slug_category_posts = new WP_Query(array(
+             'post_type'   => 'post',
+             'posts_per_page' => 5,
+             'orderby'         => 'title',
+             'order'          => 'DESC',
+             'category_name'  => 'Uncategorized'
+          ));
+         ?>
+          <?php if(have_posts()) : while($slug_category_posts->have_posts()) : $slug_category_posts->the_post()?>
+                    <div class="widget-news">
+                        <a href="#"><?php the_post_thumbnail('feature_image_one', array('class' => 'post-thumb')); ?></a>
+                        <div class="news-text">
+                            <p><?php the_title()?></p>
+                            <a class="" href="<?php the_permalink() ?>">Read More</a>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
     </div>
-</div>
+
