@@ -34,6 +34,11 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <?php
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
+    ?>
     <?php wp_head() ?>
 </head>
 
@@ -60,7 +65,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 social">
                             <div class="header-top-search">
-                                <?php get_search_form()?>
+                                <?php get_search_form() ?>
                             </div>
                         </div>
                     </div>

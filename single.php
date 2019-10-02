@@ -99,7 +99,7 @@
                         <div class="comment-area">
                             <h2 class="page-header">Comments</h2>
                             <div class="comment-list">
-                            <?php get_template_part('sidebar') ?>
+                            <?php comments_template( '', true ); ?>
                             </div>
                         </div>
                     </div>
