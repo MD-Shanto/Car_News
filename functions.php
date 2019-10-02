@@ -79,9 +79,3 @@ function santo_move_comment_field_to_bottom($fields)
 add_filter('comment_form_fields', 'santo_move_comment_field_to_bottom');
 
 
-function remove_any_fields($fields)
-{
-    unset($fields['url']);
-    return $fields;
-}
-add_filter('comment_form_default_fields', 'remove_any_fields');
