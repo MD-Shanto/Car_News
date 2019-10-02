@@ -69,12 +69,19 @@ function widgets_sidebar()
 add_action('widgets_init', 'widgets_sidebar');
 
 
-function santo_move_comment_field_to_bottom( $fields ) {
+function santo_move_comment_field_to_bottom($fields)
+{
     $comment_field = $fields['comment'];
-    unset( $fields['comment'] );
+    unset($fields['comment']);
     $fields['comment'] = $comment_field;
     return $fields;
-    }
-     
-    add_filter( 'comment_form_fields', 'santo_move_comment_field_to_bottom' );
-    
+}
+add_filter('comment_form_fields', 'santo_move_comment_field_to_bottom');
+
+
+function remove_any_fields($fields)
+{
+    unset($fields['url']);
+    return $fields;
+}
+add_filter('comment_form_default_fields', 'remove_any_fields');
