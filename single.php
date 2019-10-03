@@ -96,10 +96,47 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="related_post_area">
+                            <h3>Related Posts</h3>
+                            <?php
+                            $tags = wp_get_post_tags($post->ID);
+
+                            if ($tags) {
+                                $first_tag = $tags[0]->term_id;
+                                $my_query = new WP_Query(array(
+                                    'tag__in' => array($first_tag),
+                                    'post__not_in' => array($post->ID),
+                                    'posts_per_page' => 5,
+                                    'caller_get_posts' => 1
+                                ));
+
+                                if ($my_query->have_posts()) {
+                                    while ($my_query->have_posts()) : $my_query->the_post(); ?>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="related_post_item">
+                                            <?php if (has_post_thumbnail()) : ?>
+                                                <?php the_post_thumbnail('feature_image_one', array('class' => 'post-thumb')); ?>
+                                            <?php endif ?>
+                                                <h2><a href=""><?php the_title()?></a></h2>
+                                                <p><?php the_excerpt()?></p>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    endwhile;
+                                }
+                                wp_reset_query();
+                            }
+                            ?>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="comment-area">
                             <h2 class="page-header">Comments</h2>
                             <div class="comment-list">
-                            <?php comments_template( '', true ); ?>
+                                <?php comments_template('', true); ?>
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,7 @@
                                     <div class="inner-post-box">
                                         <div class="image-box">
                                             <?php if (has_post_thumbnail()) : ?>
-                                                <?php the_post_thumbnail('feature_image_one', array('class' => 'post-thumb')); ?>
+                                                <?php the_post_thumbnail('feature_image_two', array('class' => 'post-thumb')); ?>
                                             <?php endif ?>
 
                                             <div class="post-caption transition7s">

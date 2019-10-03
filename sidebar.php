@@ -36,7 +36,6 @@
 
         <div class="siderbar-widget">
             <h4 class="sidebar-widget-title">Freelancing Catagory Post</h4>
-
             <?php
             $freelancing_category_posts = new WP_Query(array(
                 'post_type'       => 'post',
@@ -61,7 +60,6 @@
 
         <div class="siderbar-widget">
             <h4 class="sidebar-widget-title">Slug Catagory Post</h4>
-
          <?php
          $slug_category_posts = new WP_Query(array(
              'post_type'   => 'post',
@@ -72,6 +70,28 @@
           ));
          ?>
           <?php if(have_posts()) : while($slug_category_posts->have_posts()) : $slug_category_posts->the_post()?>
+                    <div class="widget-news">
+                        <a href="#"><?php the_post_thumbnail('feature_image_one', array('class' => 'post-thumb')); ?></a>
+                        <div class="news-text">
+                            <p><?php the_title()?></p>
+                            <a class="" href="<?php the_permalink() ?>">Read More</a>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+
+        <div class="siderbar-widget">
+            <h4 class="sidebar-widget-title">Random Post</h4>
+         <?php
+         $random_posts = new WP_Query(array(
+             'post_type'   => 'post',
+             'posts_per_page' => 4,
+             'orderby'         => 'rand',
+             'order'          => 'DESC',
+          ));
+         ?>
+          <?php if(have_posts()) : while($random_posts->have_posts()) : $random_posts->the_post()?>
                     <div class="widget-news">
                         <a href="#"><?php the_post_thumbnail('feature_image_one', array('class' => 'post-thumb')); ?></a>
                         <div class="news-text">

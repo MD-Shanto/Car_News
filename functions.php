@@ -12,7 +12,7 @@ add_theme_support('post-thumbnails', array('post', 'page'));
 set_post_thumbnail_size(200, 200, true);
 
 add_image_size('feature_image_one', 300, 500, true);
-add_image_size('feature_image_two',300,500 ,true);
+add_image_size('feature_image_two',300,300 ,true);
 
 
 function widgets_sidebar()
